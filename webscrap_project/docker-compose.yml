@@ -38,7 +38,7 @@ services:
     depends_on:
       - db
       - elasticsearch  # Ensures the database and Elasticsearch are ready before starting the scraper
-    entrypoint: ["./wait-for-it.sh", "elasticsearch:9200", "--", "sh", "-c", "python SkinProductA/webscrapflipkart.py && python SkinProductA/fromWebToDatabase.py && python SkinProductA/pushToElasticsearch.py"]
+    entrypoint: ["./wait-for-it.sh", "elasticsearch:9200", "--", "sh", "-c", "python SkinProductA/webscrapflipkart.py && python SkinProductA/fromWebToDatabase.py && python SkinProductA/pushToElasticsearch.py && python SkinProductA/customer_details.py"]
     networks:
       - mynetwork
     
